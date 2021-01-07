@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>CHIKKUDU TV</h1>
+  </div>
+   
+  <div class="panel panel-primary">
+      <div class="panel-heading"><h2>I am like you, Individual person. Support me. Please follow below steps </h2></div>
+      <div class="panel-body">
+  <blockquote>
+      <b>Step1:</b> Please <kbd>Like 👍</kbd>  OR <kbd>Comment 💬 </kbd>
+  </blockquote>
+  <blockquote>
+      <b>Step2:</b> Select the checkbox "Yes, I liked ..." 
+  </blockquote>
+  <blockquote>
+      <b>Step3:</b> Click the Button "Let Me Download" 
+  </blockquote>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+      40%
+    </div>
+     
+  </div>
+  <div class="checkbox">
+  <h3><label><input type="checkbox" id="iamdone" value="" onchange="enableLikedButton()" >Yes, I commented and Liked the video</label></h3>
+</div>
+  
+  <button type="button" id="btnThanks"size=xxxl class="btn btn-warning btn-lg" onclick="enableDownloadButton()" >Let me Download >></button>
+  <button type="button" id="btnDwd" size=xxxl class="btn btn-success btn-lg" style="visibility: hidden;" onclick="downloadItem()">Thanks 🙏 DOWNLOAD</button>
+</div>
+</div>
+    </div>
+    
+<script>
+    var links = [
+    "https://drive.google.com/file/d/1-J0tVdeVbmK4gjO5NxNTUalwW-g9J3kM/view?usp=sharing",//character greenpant cheksdress
+    "https://drive.google.com/drive/folders/1yK8RGW-hXypMMNuvy2Zu8qo4vGQeshOL?usp=sharing",//backgrounds set1
+    "https://drive.google.com/drive/folders/1NE_BqiGi5YCkVXpW2b2tW7fqDb7MD5fz?usp=sharing", //backgrounds set2
+
+    ];
+    document.getElementById("btnThanks").disabled = true;
+    function enableDownloadButton()
+    {
+      document.getElementById("btnThanks").style.visibility = "hidden";
+        document.getElementById("btnDwd").style.visibility = "visible";
+
+    }
+    function enableLikedButton()
+    {
+      document.getElementById("btnThanks").disabled = false;
+
+    }
+
+    function downloadItem()
+    {
+      const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const product = urlParams.get('thanksid');
+      urlToDownload = links[product];
+      console.log(urlToDownload);
+      document.location.href=urlToDownload;
+    }
+    
+  </script>
+</body>
+</html>
